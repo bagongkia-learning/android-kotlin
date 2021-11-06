@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/activity_main.xml" value="0.371875" />
-        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/article_item.xml" value="0.10460992907801418" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/fragment_article.xml" value="0.22" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/fragment_news.xml" value="0.21041666666666667" />
         <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/fragment_news_detail.xml" value="0.1" />
         <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/fragment_start.xml" value="0.1" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/item_article.xml" value="0.5" />
         <entry key="..\:/Projects/android/news-app/app/src/main/res/layout/news_title.xml" value="0.1" />
+        <entry key="..\:/Projects/android/news-app/app/src/main/res/menu/menu_search.xml" value="0.17407407407407408" />
       </map>
     </option>
   </component>

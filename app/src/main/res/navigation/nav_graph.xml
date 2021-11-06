@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/news_fragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.bca.learning.newsapp.HomeFragment"
+        android:id="@+id/news_fragment"
+        android:name="com.bca.learning.newsapp.ui.NewsFragment"
         android:label="@string/news"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_news" >
         <action
             android:id="@+id/action_startFragment_to_flavorFragment"
-            app:destination="@id/newsDetailFragment" />
+            app:destination="@id/article_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/newsDetailFragment"
-        android:name="com.bca.learning.newsapp.NewsDetailFragment"
-        android:label="@string/news_detail"
-        tools:layout="@layout/fragment_news_detail">
+        android:id="@+id/article_fragment"
+        android:name="com.bca.learning.newsapp.ui.ArticleFragment"
+        android:label="Article"
+        tools:layout="@layout/fragment_article">
     </fragment>
 </navigation>
