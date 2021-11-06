@@ -13,7 +13,7 @@ interface NewsService {
         const val API_KEY = "5c52b44b80c8406f883ba43c663bc519"
     }
 
-    @GET("everything?sortBy=publishedAt&apiKey=$API_KEY")
+    @GET("everything?sortBy=publishedAt&apiKey=$API_KEY&language=en")
     suspend fun searchNews (
         @Query("q") query: String,
         @Query("page") page: Int
