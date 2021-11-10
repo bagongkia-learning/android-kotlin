@@ -4,8 +4,6 @@ import com.bca.learning.newsapp.model.News
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val IN_QUALIFIER = "in:title"
-
 interface NewsService {
 
     companion object {

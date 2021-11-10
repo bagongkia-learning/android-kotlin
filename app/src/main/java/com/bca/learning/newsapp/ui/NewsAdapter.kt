@@ -2,11 +2,13 @@ package com.bca.learning.newsapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bca.learning.newsapp.databinding.ItemArticleBinding
 import com.bca.learning.newsapp.model.Article
+import java.lang.Exception
 
 class NewsAdapter() : PagingDataAdapter<Article, NewsAdapter.ArticleViewHolder>(COMPARATOR) {
 
@@ -27,6 +29,8 @@ class NewsAdapter() : PagingDataAdapter<Article, NewsAdapter.ArticleViewHolder>(
 
         fun bind(article: Article) {
             with(binding) {
+                val imageURI = article.urlToImage.toUri().buildUpon().scheme("https").build()
+                articleImage.setImageURI(imageURI)
                 articleTitle.text = article.title
                 articleDescription.text = article.description
             }
