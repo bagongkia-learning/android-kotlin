@@ -1,10 +1,7 @@
 package com.bca.learning.newsapp.api
 
 import com.bca.learning.newsapp.model.News
-import retrofit2.http.GET
-import retrofit2.http.Query
-
-const val IN_QUALIFIER = "in:title"
+import retrofit2.http.*
 
 interface NewsService {
 

@@ -1,6 +1,7 @@
 package com.bca.learning.newsapp.di
 
 import android.app.Application
+import com.bca.learning.newsapp.api.LoginService
 import com.bca.learning.newsapp.api.NewsService
 import dagger.Module
 import dagger.Provides
@@ -34,5 +35,17 @@ object ApiModule {
     @Provides
     @Singleton
     fun provideNewsService(retrofit: Retrofit): NewsService = retrofit.create(NewsService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideLoginRetrofit() : Retrofit = Retrofit.Builder()
+        .baseUrl(LoginService.BASE_URL)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    @Provides
+    @Singleton
+    fun provideLoginService(retrofit: Retrofit): LoginService = retrofit.create(LoginService::class.java)
 
 }
