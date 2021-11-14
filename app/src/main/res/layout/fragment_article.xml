@@ -1,20 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ArticleFragment">
 
-    <Button
-        android:id="@+id/button"
+    <ImageView
+        android:id="@+id/article_image"
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/article_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_below="@+id/article_image"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:textSize="@dimen/news_name_size"
+        tools:text="Title" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/article_author_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_title"
+        android:layout_marginHorizontal="5dp"
+        android:textSize="@dimen/news_description_size"
+        android:text="Author: " />
+
+    <TextView
+        android:id="@+id/article_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_title"
+        android:layout_toEndOf="@+id/article_author_label"
+        android:textSize="@dimen/news_description_size"
+        tools:text="Author" />
+
+    <TextView
+        android:id="@+id/article_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/article_author_label"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/article_author"
+        android:layout_marginHorizontal="5dp"
+        tools:text="Article Date"
+        android:textAlignment="textEnd"
+        android:textSize="@dimen/news_description_size" />
+
+    <TextView
+        android:id="@+id/article_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_author_label"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/news_description_size"
+        android:layout_marginHorizontal="5dp"
+        tools:text="Content" />
+
+    <TextView
+        android:id="@+id/article_url_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/news_description_size"
+        android:text="Source URL: " />
+
+    <TextView
+        android:id="@+id/article_url"
+        android:autoLink="web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/article_url_label"
+        android:textSize="@dimen/news_description_size"
+        android:layout_marginHorizontal="5dp"
+        tools:text="www.google.com" />
+
+</RelativeLayout>

@@ -13,6 +13,17 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_article"/>
 
+    <TextView android:id="@+id/emptyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/no_results"
+        android:textSize="@dimen/news_name_size"
+        android:visibility="gone"
+        tools:text="@string/no_results"
+        tools:visibility="visible"/>
+
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
@@ -21,31 +32,11 @@
         android:visibility="gone"
         tools:visibility="visible"/>
 
-    <TextView
-        android:id="@+id/news_failed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btn_try_again"
-        android:layout_centerHorizontal="true"
-        android:text="Data gagal dimuat"
-        android:visibility="gone"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/news_not_found"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Berita tidak ditemukan"
-        android:visibility="gone"
-        tools:visibility="visible" />
-
     <Button
-        android:id="@+id/btn_try_again"
+        android:id="@+id/retry_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Try Again"
-        android:visibility="gone"
-        tools:visibility="visible" />
+        android:text="@string/retry" />
+
 </RelativeLayout>

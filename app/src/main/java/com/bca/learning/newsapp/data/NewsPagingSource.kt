@@ -14,12 +14,16 @@ class NewsPagingSource (
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val position = params.key ?: STARTING_PAGE_INDEX
-        val news = newsService.searchNews(query, position)
-        return LoadResult.Page(
-            data = news.articles,
-            prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1,
-            nextKey = if (news.articles.isEmpty()) null else position + 1
-        )
+        return try {
+            val news = newsService.searchNews(query, position, NewsRepository.NETWORK_PAGE_SIZE)
+            return LoadResult.Page(
+                data = news.articles,
+                prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1,
+                nextKey = if (news.articles.isEmpty()) null else position + 1
+            )
+        } catch (exception: Exception) {
+            return LoadResult.Error(exception)
+        }
     }
 
     // The refresh key is used for the initial load of the next PagingSource, after invalidation

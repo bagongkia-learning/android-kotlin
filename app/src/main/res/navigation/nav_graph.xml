@@ -11,7 +11,7 @@
         android:label="@string/news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_startFragment_to_flavorFragment"
+            android:id="@+id/action_newsFragment_to_articleFragment"
             app:destination="@id/article_fragment" />
     </fragment>
     <fragment
@@ -19,5 +19,8 @@
         android:name="com.bca.learning.newsapp.ui.ArticleFragment"
         android:label="Article"
         tools:layout="@layout/fragment_article">
+        <argument
+            android:name="article"
+            app:argType="com.bca.learning.newsapp.model.Article" />
     </fragment>
 </navigation>
