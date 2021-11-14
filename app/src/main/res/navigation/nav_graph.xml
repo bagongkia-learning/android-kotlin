@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_newsFragment_to_articleFragment"
             app:destination="@id/article_fragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_loginFragment"
+            app:destination="@id/login_fragment" />
     </fragment>
     <fragment
         android:id="@+id/article_fragment"

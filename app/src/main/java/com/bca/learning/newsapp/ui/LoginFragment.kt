@@ -1,5 +1,6 @@
 package com.bca.learning.newsapp.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -34,15 +35,14 @@ class LoginFragment : Fragment() {
             loginButton.setOnClickListener {
                 viewModel.login(emailView.text.toString(), passwordView.text.toString())
             }
-            root.setOnTouchListener { view, motionEvent ->
-                Log.d("Login", "new activity")
-                return@setOnTouchListener true
-            }
         }
 
         viewModel.snackbar.observe(viewLifecycleOwner) {
             Snackbar.make(view, it, Snackbar.LENGTH_SHORT).show()
-            if (it == "Login success") {
+        }
+
+        viewModel.login.observe(viewLifecycleOwner) {
+            if (it == 1) {
                 val action = LoginFragmentDirections.actionLoginFragmentToNewsFragment()
                 findNavController().navigate(action)
             }

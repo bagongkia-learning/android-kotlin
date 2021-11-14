@@ -20,13 +20,12 @@ import kotlinx.coroutines.launch
 class NewsFragment : Fragment(R.layout.fragment_news) {
 
     private val viewModel by viewModels<NewsViewModel>()
-    private var _binding : FragmentNewsBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentNewsBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        _binding = FragmentNewsBinding.bind(view)
+        binding = FragmentNewsBinding.bind(view)
         binding.bindState(
             uiState = viewModel.state,
             pagingData = viewModel.pagingDataFlow,

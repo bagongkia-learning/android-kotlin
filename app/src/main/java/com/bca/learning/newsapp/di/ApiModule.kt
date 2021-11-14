@@ -25,7 +25,7 @@ object ApiModule {
     annotation class LoginRetrofit
 
     private val loggingInterceptor = HttpLoggingInterceptor()
-        .setLevel(HttpLoggingInterceptor.Level.HEADERS)
+        .setLevel(HttpLoggingInterceptor.Level.BASIC)
 
     private val okHttpClient: OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)

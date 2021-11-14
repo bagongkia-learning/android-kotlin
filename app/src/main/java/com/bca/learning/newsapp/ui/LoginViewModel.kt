@@ -1,5 +1,8 @@
 package com.bca.learning.newsapp.ui
 
+import android.os.CountDownTimer
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,6 +20,8 @@ class LoginViewModel @Inject constructor(
 ): ViewModel() {
 
     val snackbar = MutableLiveData<String>()
+    private val _login = MutableLiveData<Int>()
+    val login: LiveData<Int> = _login
 
     fun login(email: String, password: String) = viewModelScope.launch {
         try {
@@ -25,6 +30,7 @@ class LoginViewModel @Inject constructor(
             }
             val token = loginRepository.login(email, password)
             if (token != null) {
+                _login.value = 1
                 snackbar.postValue("Login success")
             }
         } catch (ex: Exception) {
@@ -32,8 +38,9 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    fun logout() = viewModelScope.launch {
-        snackbar.postValue("Logout")
+    fun logout() {
+        _login.value = 0
+        snackbar.postValue("Inactive for 30 seconds. Logout success.")
     }
 
 }

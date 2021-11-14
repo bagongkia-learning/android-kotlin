@@ -1,20 +1,29 @@
 package com.bca.learning.newsapp.ui
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.bca.learning.newsapp.R
-import com.bca.learning.newsapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var navController: NavController
+    private val timerObject = object: CountDownTimer(30000, 1000) {
+        override fun onTick(millisUntilFinished: Long) {
+        }
+
+        override fun onFinish() {
+            val sharedPreferences = applicationContext?.getSharedPreferences("TOKEN", Context.MODE_PRIVATE)
+            sharedPreferences?.edit()?.clear()
+            navController.navigate(R.id.login_fragment)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,5 +36,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onUserInteraction() {
+        timerObject.cancel()
+        timerObject.start()
+        super.onUserInteraction()
     }
 }
