@@ -10,13 +10,13 @@ interface LoginService {
 
     companion object {
         const val BASE_URL = "https://talentpool.oneindonesia.id/api/"
-        const val API_KEY = "5c52b44b80c8406f883ba43c663bc519"
+        const val API_KEY = "454041184B0240FBA3AACD15A1F7A8BB"
     }
 
     @POST("user/login")
     @FormUrlEncoded
     suspend fun login(
-        @Header("X-API-KEY") apikey: String,
+        @Header("X-API-KEY") apiKey: String,
         @Field("username") username: String,
         @Field("password") password: String
     ) : LoginResponse

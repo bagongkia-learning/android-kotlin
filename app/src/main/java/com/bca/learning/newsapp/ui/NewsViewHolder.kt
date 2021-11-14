@@ -25,10 +25,6 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 val action = NewsFragmentDirections.actionNewsFragmentToArticleFragment(article!!)
                 Navigation.findNavController(view).navigate(action)
             }
-//            article?.url?.let { url ->
-//                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-//                view.context.startActivity(intent)
-//            }
         }
 
     }
