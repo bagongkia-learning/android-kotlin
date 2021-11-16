@@ -8,7 +8,7 @@ interface NewsService {
 
     companion object {
         const val BASE_URL = "https://newsapi.org/v2/"
-        const val API_KEY = "04e58a96037547ad934a61be34f20f1f"
+        const val API_KEY = "af4eaa4a77d34df1b19f17bf6a5d4aef"
     }
 
     @GET("everything?sortBy=publishedAt&apiKey=$API_KEY&language=en")

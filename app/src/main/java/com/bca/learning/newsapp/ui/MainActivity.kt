@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -14,8 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var navController: NavController
-    private val timerObject = object: CountDownTimer(30000, 1000) {
+    private val timerObject = object: CountDownTimer(30000, 3000) {
         override fun onTick(millisUntilFinished: Long) {
+            Log.d("Count Down", millisUntilFinished.toString())
         }
 
         override fun onFinish() {
